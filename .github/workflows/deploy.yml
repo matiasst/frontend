@@ -9,7 +9,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+    - name: install dependencies
+      run: npm install
+    - name: build website
+      run: npm run build
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
@@ -17,4 +22,3 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_S3_BUCKET }}
         run: aws s3 sync ./build/. s3://firstbucketwebsite
-  
