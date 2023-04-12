@@ -22,4 +22,4 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_S3_BUCKET }}
     - name: Copy to S3
-      run: aws s3 sync ./build/. s3://firstbucketwebsite
+      run: aws s3 sync ./build/. s3://firstbucketwebsite --delete
