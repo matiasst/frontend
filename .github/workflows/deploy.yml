@@ -24,4 +24,4 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: 'eu-west-2'
     - name: Copy to S3
-      run: aws s3 sync ./build s3://frontend-code-dev
+      run: aws s3 sync ./build s3://frontend-code-prod
